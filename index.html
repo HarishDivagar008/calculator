@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Harish's Responsive Calculator</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #c9d6ff, #e2e2e2);
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 50px;
+      margin: 0;
+    }
+
+    h2 {
+      color: #222;
+      font-size: 36px;
+      margin-bottom: 25px;
+    }
+
+    .calculator-box {
+      background-color: #ffffffcc;
+      padding: 30px;
+      border-radius: 15px;
+      display: inline-block;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      max-width: 500px;
+      width: 90%;
+    }
+
+    input {
+      font-size: 20px;
+      padding: 12px;
+      margin: 10px 0;
+      width: 90%;
+      border-radius: 8px;
+      border: 2px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    button {
+      font-size: 18px;
+      padding: 12px 20px;
+      margin: 8px 4px;
+      border: none;
+      border-radius: 6px;
+      background-color: #1e90ff;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+      width: 42%;
+    }
+
+    button:hover {
+      background-color: #0f7ae5;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 24px;
+      color: #333;
+    }
+
+    /* ✅ Mobile Responsive */
+    @media screen and (max-width: 480px) {
+      h2 {
+        font-size: 28px;
+      }
+
+      input {
+        font-size: 18px;
+        width: 100%;
+      }
+
+      button {
+        width: 100%;
+        font-size: 18px;
+        margin: 6px 0;
+      }
+
+      #result {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="calculator-box">
+    <h2>🧮 Harish's Calculator</h2>
+
+    <input type="number" id="num1" placeholder="Enter First Number">
+    <input type="number" id="num2" placeholder="Enter Second Number">
+
+    <br><br>
+
+    <button onclick="add()">➕ Add</button>
+    <button onclick="subtract()">➖ Subtract</button><br>
+    <button onclick="multiply()">✖ Multiply</button>
+    <button onclick="divide()">➗ Divide</button>
+
+    <h3 id="result">Result: </h3>
+  </div>
+
+  <script>
+    function add() {
+      let a = parseFloat(document.getElementById("num1").value);
+      let b = parseFloat(document.getElementById("num2").value);
+      showResult(a + b);
+    }
+
+    function subtract() {
+      let a = parseFloat(document.getElementById("num1").value);
+      let b = parseFloat(document.getElementById("num2").value);
+      showResult(a - b);
+    }
+
+    function multiply() {
+      let a = parseFloat(document.getElementById("num1").value);
+      let b = parseFloat(document.getElementById("num2").value);
+      showResult(a * b);
+    }
+
+    function divide() {
+      let a = parseFloat(document.getElementById("num1").value);
+      let b = parseFloat(document.getElementById("num2").value);
+      if (b === 0) {
+        showResult("❌ Cannot divide by 0!");
+      } else {
+        showResult(a / b);
+      }
+    }
+
+    function showResult(value) {
+      document.getElementById("result").innerHTML = "Result: " + value;
+    }
+  </script>
+
+</body>
+</html>
